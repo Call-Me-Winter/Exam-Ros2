@@ -1,0 +1,40 @@
+```xml
+<?xml version="1.0"?>
+<robot name="exam_robot">
+  <link name="base_link">
+    <visual>
+      <geometry><box size="0.3 0.2 0.1"/></geometry>
+    </visual>
+  </link>
+  <link name="wheel_left">
+    <visual>
+      <geometry><cylinder radius="0.05" length="0.03"/></geometry>
+    </visual>
+  </link>
+  <link name="wheel_right">
+    <visual>
+      <geometry><cylinder radius="0.05" length="0.03"/></geometry>
+    </visual>
+  </link>
+  <link name="sensor_frame">
+    <visual>
+      <geometry><sphere radius="0.03"/></geometry>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_left"/>
+    <origin xyz="-0.1 0.1 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="base_to_right_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_right"/>
+    <origin xyz="-0.1 -0.1 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="base_to_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="sensor_frame"/>
+    <origin xyz="0.1 0 0.1" rpy="0 0 0"/>
+  </joint>
+</robot>
